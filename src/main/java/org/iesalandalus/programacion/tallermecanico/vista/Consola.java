@@ -11,88 +11,110 @@ import java.time.format.DateTimeParseException;
 
 public class Consola {
     private static final String CADENA_FORMATO_FECHA = "dd/MM/yyyy";
+    private Consola(){}
 
-    private Consola (){}
     public static void mostrarCabecera(String mensaje){
         System.out.println(mensaje);
-        System.out.println("-".repeat(mensaje.length()));
+        System.out.println("-".repeat(mensaje.length()).concat(""));
+        //Esto lo que hace es poner una cadena y despues el comanodo repetir por lo larga que sea la cadena del mensaje.
+
     }
+
     public static void mostrarMenu(){
-        System.out.println("Aplicación taller mecánico");
-        for(Opcion opcion : Opcion.values())
-        System.out.printf(opcion.toString());
+        mostrarCabecera("Gestor de Taller de Reparación de Vehículos.");
+        mostrarCabecera("Menú de opciones: ");
+        for (Opcion opcion : Opcion.values()){
+            System.out.println(opcion);
+        }
     }
+
     public static Opcion elegirOpcion(){
         Opcion opcion = null;
         do {
             try {
-                opcion = Opcion.get(leerEntero("\nElige una opción: "));
-            } catch (IllegalArgumentException e){
-                System.out.printf("ERROR: %s%n" , e.getMessage());
+                opcion = Opcion.get(leerEntero("Introduzca el número de opción:"));
+            } catch (IllegalArgumentException e) {
+                System.out.printf("ERROR: %s%n", e.getMessage());
             }
-        }while (opcion == null);
+
+        } while (opcion == null);
+
+
         return opcion;
     }
-    private static int leerEntero(String mensaje){
-        System.out.print(mensaje);
-        return Entrada.entero();
-    }
+
     private static float leerReal(String mensaje){
-        System.out.print(mensaje);
-        return Entrada.real();
+        System.out.println(mensaje);
+        return Float.parseFloat(Entrada.cadena());
+
     }
+
+    private static int leerEntero(String mensaje){
+        System.out.println(mensaje);
+        return Integer.parseInt(Entrada.cadena());
+
+    }
+
     private static String leerCadena(String mensaje){
-        System.out.print(mensaje);
+        System.out.println(mensaje);
         return Entrada.cadena();
     }
+
     private static LocalDate leerFecha(String mensaje){
-        LocalDate fecha;
-        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern(CADENA_FORMATO_FECHA);
-        mensaje = String.format("%s (%s): ", mensaje, CADENA_FORMATO_FECHA);
-        try {
-            fecha = LocalDate.parse(leerCadena(mensaje), formatoFecha);
-        } catch (DateTimeParseException e){
-            fecha = null;
-        }
-        return fecha;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(CADENA_FORMATO_FECHA);
+        return LocalDate.parse(leerCadena(mensaje),formatter);
     }
+
     public static Cliente leerCliente(){
-        String nombre = leerCadena("Introduce el nombre: ");
-        String dni = leerCadena("Introduce el DNI: ");
-        String telefono = leerCadena("Introduce el teléfono");
-        return new Cliente(nombre, dni, telefono);
+        Cliente cliente = new Cliente(leerClienteDNI());
+        cliente.setNombre(leerNuevoNombre());
+        cliente.setTelefono(leerNuevoTelefono());
+        return cliente;
+
     }
+
     public static Cliente leerClienteDNI(){
-        return Cliente.get(leerCadena("Introduce el DNI"));
+        System.out.print("Escriba el DNI del cliente: ");
+        String dniCliente = Entrada.cadena();
+        return Cliente.get(dniCliente);
     }
+
     public static String leerNuevoNombre(){
-        return leerCadena("Introduce nuevo nombre");
+        return leerCadena("Introduzca un nombre para el cliente: ");
     }
+
     public static String leerNuevoTelefono(){
-        return leerCadena("Introduce nuevo teléfono");
+        return leerCadena("Introduzca un nuevo teléfono para el cliente.");
     }
+
     public static Vehiculo leerVehiculo(){
-        String marca = leerCadena("Introduce la marca: ");
-        String modelo = leerCadena("Introduce el modelo: ");
-        String matricula = leerCadena("Introduce la matrícula: ");
-        return new Vehiculo(marca, modelo, matricula);
+        String marca = leerCadena("Introduzca el modelo del vehiculo: ");
+        String modelo = leerCadena("Introduzca el modelo del vehiculo: ");
+        String matricula = leerCadena("Introduzca la matricula del vehiculo: ");
+        return new Vehiculo(marca,modelo,matricula);
+
     }
+
     public static Vehiculo leerVehiculoMatricula(){
-        return Vehiculo.get(leerCadena("Introduce la matrícula: "));
+        return Vehiculo.get(leerCadena("Introduzca la matrícula del vehiculo: "));
     }
+
     public static Revision leerRevision(){
-        Cliente cliente = leerClienteDNI();
-        Vehiculo vehiculo = leerVehiculoMatricula();
-        LocalDate fechaInicio = leerFecha("Introduce la fecha de inicio: ");
-        return new Revision(cliente, vehiculo, fechaInicio);
+        return new Revision(leerClienteDNI(),leerVehiculoMatricula(),leerFecha("Introduzca la fecha de la revisión: "));
     }
+
     public static int leerHoras(){
-        return leerEntero("Introduce las horas a añadir: ");
+        return leerEntero("Escriba la cantidad de horas de trabajo: ");
     }
+
     public static float leerPrecioMaterial(){
-        return leerReal("Introduce el precio a añadir: ");
+        return leerReal("Introduce el precio del material: ");
     }
+
     public static LocalDate leerFechaCierre(){
-        return leerFecha("Introduce la fecha de inicio: ");
+        return leerFecha("Introduzca la fecha de cierre de la revisión: ");
     }
+
+
+
 }

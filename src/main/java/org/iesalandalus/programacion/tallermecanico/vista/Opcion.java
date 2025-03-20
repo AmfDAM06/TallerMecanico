@@ -1,56 +1,68 @@
 package org.iesalandalus.programacion.tallermecanico.vista;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
 public enum Opcion {
-    INSERTAR_CLIENTE(11, "Insertar cliente"),
-    BUSCAR_CLIENTE(12, "Buscar cliente"),
-    BORRAR_CLIENTE(13, "Borrar cliente"),
-    LISTAR_CLIENTES(14, "Listar cliente"),
-    MODIFICAR_CLIENTE(15, "Modificar cliente"),
-    INSERTAR_VEHICULO(21, "Insertar vehiculo"),
-    BUSCAR_VEHICULO(22, "Buscar vehiculo"),
-    BORRAR_VEHICULO(23, "Borrar vehiculo"),
-    LISTAR_VEHICULOS(24, "Listar vehiculo"),
-    INSERTAR_REVISION(31, "Insertar revision"),
-    BUSCAR_REVISION(32, "Buscar revision"),
-    BORRAR_REVISION(33, "Borrar revision"),
-    LISTAR_REVIVIONES(34, "Listar revisiones"),
-    LISTAR_REVIVIONES_CLIENTE(35, "Listar revisiones de cliente"),
-    LISTAR_REVISIONES_VEHICULO(36, "Listar revisiones de vehiculo"),
-    ANADIR_HORAS_REVISION(37, "Añadir horas a la revisión"),
-    ANADIR_PRECIO_MATERIAL_REVISION(38, "Añadir el precio del material a la revision"),
-    CERRAR_REVISION(39, "Cerrar revision"),
-    SALIR(0, "Salir");
 
-    private int numeroOpcion;
+    INSERTAR_CLIENTE(10,"Insertar un cliente."),
+    BUSCAR_CLIENTE(11,"Buscar un cliente."),
+    BORRAR_CLIENTE(12,"Borrar un cliente."),
+    LISTAR_CLIENTES(13,"Listar clientes."),
+    MODIFICAR_CLIENTE(14,"Modificar un cliente."),
+    INSERTAR_VEHICULO(20,"Insertar un vehiculo."),
+    BUSCAR_VEHICULO(21,"Buscar un vehiculo."),
+    BORRAR_VEHICULO(22,"Borrar un vehiculo."),
+    LISTAR_VEHICULOS(23,"Listar vehículos."),
+    INSERTAR_REVISION(30,"Insertar una revisión."),
+    BUSCAR_REVISION(31, "Buscar una revisión."),
+    BORRAR_REVISION(32,"Borrar una revisión."),
+    LISTAR_REVISIONES(33,"Listar revisiones."),
+    LISTAR_REVISIONES_CLIENTE(34,"Listar revisiones de un cliente."),
+    LISTAR_REVISIONES_VEHICULO(35,"Listar revisiones de un vehiculo."),
+    ANADIR_HORAS_REVISION(40,"Añadir horas a una revisión."),
+    ANADIR_PRECIO_MATERIAL_REVISION(41,"Añadir precio de material a una revisión."),
+    CERRAR_REVISION(42,"Cerrar una revisión."),
+    SALIR(0,"Salir.");
+
+
+    private static final Map<Integer, Opcion> opciones = new HashMap<>();
     private String mensaje;
-    private static Map<Integer, Opcion> opciones = new TreeMap<>();
+    private int numeroOpcion;
 
-    static{
+    private Opcion(int numeroOpcion, String mensaje) {
+        this.mensaje = mensaje;
+        this.numeroOpcion = numeroOpcion;
+    }
+    //Ahora mismo solo tenemos el mapa creado hay que inicializaro y rellenarlo con las opciones asi:
+
+    static {
+        //esto abre un bloque static
+
         for (Opcion opcion : values()){
-            opciones.put(opcion.numeroOpcion, opcion);
+            //Hacemos un bucle que recorre todas las opciones del enumerado colocando values() recorre el enum
+            opciones.put(opcion.numeroOpcion,opcion);
+            //con esto le digo que por cada opcion coja el número de opcion asociado y lo coloque
+
         }
     }
 
-    private Opcion(int numeroOpcion, String mensaje){
-        this.numeroOpcion = numeroOpcion;
-        this.mensaje = mensaje;
-    }
     public static boolean esValida(int numeroOpcion){
         return opciones.containsKey(numeroOpcion);
+        //Para un mapa el constainskey toma como si ese número que funciona como CLAVE existe.
     }
+
     public static Opcion get(int numeroOpcion){
-        if (!esValida(numeroOpcion)){
-            throw new IllegalArgumentException("El número no es correcto.");
-        }
-        return opciones.get(numeroOpcion);
+        if (esValida(numeroOpcion)) {
+            return opciones.get(numeroOpcion);
+        } else throw new IllegalArgumentException("El número de opción no es valido.");
     }
 
     @Override
     public String toString() {
-        return String.format("[Numero de la opción=%s, Mensaje=%s]", numeroOpcion, mensaje);
+        return String.format("%s: %s",numeroOpcion, mensaje);
     }
+
 }
