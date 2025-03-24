@@ -63,7 +63,7 @@ public class Revisiones {
 
         for (Revision revisionExistente : coleccionRevisiones) {
 
-            if (!revisionExistente.estaCerrada()){
+            if (!revisionExistente.estaCerrado()){
                 if (revisionExistente.getCliente().equals(cliente)){
                     throw new TallerMecanicoExcepcion("El cliente tiene otra revisión en curso.");
                 }
@@ -72,7 +72,7 @@ public class Revisiones {
                 }
             }
 
-            if (revisionExistente.estaCerrada()){
+            if (revisionExistente.estaCerrado()){
                 if (revisionExistente.getCliente().equals(cliente) && !fechaRevision.isAfter(revisionExistente.getFechaFin())){
                     throw new TallerMecanicoExcepcion("El cliente tiene una revisión posterior.");
                 }
