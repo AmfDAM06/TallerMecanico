@@ -1,10 +1,11 @@
-package org.iesalandalus.programacion.tallermecanico.vista;
+package org.iesalandalus.programacion.tallermecanico.vista.texto;
 
 import org.iesalandalus.programacion.tallermecanico.controlador.Controlador;
 import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepcion;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
+import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
 
 import java.util.List;
 import java.util.Objects;
@@ -18,12 +19,12 @@ public class Vista {
     }
 
     public void comenzar() throws TallerMecanicoExcepcion {
-        Opcion opcion;
+        Evento opcion;
         do {
             Consola.mostrarMenu();
             opcion = Consola.elegirOpcion();
             ejecutar(opcion);
-        } while (opcion != Opcion.SALIR);
+        } while (opcion != Evento.SALIR);
         controlador.terminar();
     }
 
@@ -31,26 +32,26 @@ public class Vista {
         System.out.println("Me doy el piro, vampiro!");
     }
 
-    private void ejecutar(Opcion opcion) throws TallerMecanicoExcepcion {
+    private void ejecutar(Evento opcion) throws TallerMecanicoExcepcion {
 
         switch(opcion){
             case INSERTAR_CLIENTE -> insertarCliente();
             case INSERTAR_VEHICULO -> insertarVehiculo();
-            case INSERTAR_REVISION -> insertarRevision();
+            case INSERTAR_TRABAJO -> insertarRevision();
             case BUSCAR_CLIENTE -> buscarCliente();
             case BUSCAR_VEHICULO -> buscarVehiculo();
-            case BUSCAR_REVISION -> buscarRevision();
+            case BUSCAR_TRABAJO -> buscarRevision();
             case MODIFICAR_CLIENTE -> modificarCliente();
-            case ANADIR_HORAS_REVISION -> anadirHoras();
-            case ANADIR_PRECIO_MATERIAL_REVISION -> anadirPrecioMaterial();
+            case ANADIR_HORAS_TRABAJO -> anadirHoras();
+            case ANADIR_PRECIO_MATERIAL_TRABAJO -> anadirPrecioMaterial();
             case BORRAR_CLIENTE -> borrarCliente();
-            case BORRAR_REVISION -> borrarRevision();
-            case CERRAR_REVISION -> cerrarRevision();
+            case BORRAR_TRABAJO -> borrarRevision();
+            case CERRAR_TRABAJO -> cerrarRevision();
             case BORRAR_VEHICULO -> borrarVehiculo();
             case LISTAR_CLIENTES -> listarClientes();
-            case LISTAR_REVISIONES -> listarRevisones();
-            case LISTAR_REVISIONES_CLIENTE -> listarRevisionesClientes();
-            case LISTAR_REVISIONES_VEHICULO -> listarRevisionesVehiculos();
+            case LISTAR_TRABAJOS -> listarRevisones();
+            case LISTAR_TRABAJOS_CLIENTE -> listarRevisionesClientes();
+            case LISTAR_TRABAJOS_VEHICULO -> listarRevisionesVehiculos();
             case LISTAR_VEHICULOS -> listarVehiculos();
             case SALIR -> salir();
 

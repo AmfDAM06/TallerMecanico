@@ -1,13 +1,13 @@
-package org.iesalandalus.programacion.tallermecanico.vista;
+package org.iesalandalus.programacion.tallermecanico.vista.texto;
 
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
+import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 
 public class Consola {
     private static final String CADENA_FORMATO_FECHA = "dd/MM/yyyy";
@@ -23,16 +23,16 @@ public class Consola {
     public static void mostrarMenu(){
         mostrarCabecera("Gestor de Taller de Reparación de Vehículos.");
         mostrarCabecera("Menú de opciones: ");
-        for (Opcion opcion : Opcion.values()){
+        for (Evento opcion : Evento.values()){
             System.out.println(opcion);
         }
     }
 
-    public static Opcion elegirOpcion(){
-        Opcion opcion = null;
+    public static Evento elegirOpcion(){
+        Evento opcion = null;
         do {
             try {
-                opcion = Opcion.get(leerEntero("Introduzca el número de opción:"));
+                opcion = Evento.get(leerEntero("Introduzca el número de opción:"));
             } catch (IllegalArgumentException e) {
                 System.out.printf("ERROR: %s%n", e.getMessage());
             }
