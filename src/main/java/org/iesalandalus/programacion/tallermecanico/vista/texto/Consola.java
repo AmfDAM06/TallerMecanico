@@ -1,13 +1,10 @@
 package org.iesalandalus.programacion.tallermecanico.vista.texto;
-
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
 import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class Consola {
     private static final String CADENA_FORMATO_FECHA = "dd/MM/yyyy";
@@ -43,78 +40,31 @@ public class Consola {
         return opcion;
     }
 
-    private static float leerReal(String mensaje){
+    static float leerReal(String mensaje){
         System.out.println(mensaje);
-        return Float.parseFloat(Entrada.cadena());
+        return Entrada.real();
 
     }
 
-    private static int leerEntero(String mensaje){
+    static int leerEntero(String mensaje){
         System.out.println(mensaje);
-        return Integer.parseInt(Entrada.cadena());
+        return Entrada.entero();
 
     }
 
-    private static String leerCadena(String mensaje){
+    static String leerCadena(String mensaje){
         System.out.println(mensaje);
         return Entrada.cadena();
     }
 
-    private static LocalDate leerFecha(String mensaje){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(CADENA_FORMATO_FECHA);
-        return LocalDate.parse(leerCadena(mensaje),formatter);
+    static LocalDate leerFecha(String mensaje){
+        LocalDate fecha;
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern(CADENA_FORMATO_FECHA);
+        try {
+            fecha = LocalDate.parse(leerCadena(mensaje), formatoFecha);
+        }catch (DateTimeParseException e){
+            fecha = null;
+        }
+        return fecha;
     }
-
-    public static Cliente leerCliente(){
-        Cliente cliente = new Cliente(leerClienteDNI());
-        cliente.setNombre(leerNuevoNombre());
-        cliente.setTelefono(leerNuevoTelefono());
-        return cliente;
-
-    }
-
-    public static Cliente leerClienteDNI(){
-        System.out.print("Escriba el DNI del cliente: ");
-        String dniCliente = Entrada.cadena();
-        return Cliente.get(dniCliente);
-    }
-
-    public static String leerNuevoNombre(){
-        return leerCadena("Introduzca un nombre para el cliente: ");
-    }
-
-    public static String leerNuevoTelefono(){
-        return leerCadena("Introduzca un nuevo teléfono para el cliente.");
-    }
-
-    public static Vehiculo leerVehiculo(){
-        String marca = leerCadena("Introduzca el modelo del vehiculo: ");
-        String modelo = leerCadena("Introduzca el modelo del vehiculo: ");
-        String matricula = leerCadena("Introduzca la matricula del vehiculo: ");
-        return new Vehiculo(marca,modelo,matricula);
-
-    }
-
-    public static Vehiculo leerVehiculoMatricula(){
-        return Vehiculo.get(leerCadena("Introduzca la matrícula del vehiculo: "));
-    }
-
-    public static Revision leerRevision(){
-        return new Revision(leerClienteDNI(),leerVehiculoMatricula(),leerFecha("Introduzca la fecha de la revisión: "));
-    }
-
-    public static int leerHoras(){
-        return leerEntero("Escriba la cantidad de horas de trabajo: ");
-    }
-
-    public static float leerPrecioMaterial(){
-        return leerReal("Introduce el precio del material: ");
-    }
-
-    public static LocalDate leerFechaCierre(){
-        return leerFecha("Introduzca la fecha de cierre de la revisión: ");
-    }
-
-
-
 }

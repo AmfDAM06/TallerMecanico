@@ -148,7 +148,7 @@ import java.util.Objects;
         }
 
         @Override
-        public List<Trabajo> getRevisiones() {
+        public List<Trabajo> getTrabajos() {
             List<Trabajo> nuevosTrabajos = new ArrayList<>();
             for (Trabajo trabajo : trabajos.get()){
                 nuevosTrabajos.add(Trabajo.copiar(trabajo));
@@ -157,7 +157,7 @@ import java.util.Objects;
         }
 
         @Override
-        public List<Trabajo> getRevisiones(Cliente cliente){
+        public List<Trabajo> getTrabajos(Cliente cliente){
             List<Trabajo> nuevosTrabajos = new ArrayList<>();
             for (Trabajo trabajo : trabajos.get(cliente)){
                 nuevosTrabajos.add(Trabajo.copiar(trabajo));
@@ -166,7 +166,7 @@ import java.util.Objects;
         }
 
         @Override
-        public List<Trabajo> getRevisiones(Vehiculo vehiculo){
+        public List<Trabajo> getTrabajos(Vehiculo vehiculo){
             List<Trabajo> nuevosTrabajos = new ArrayList<>();
             for (Trabajo trabajo : trabajos.get(vehiculo)){
                 nuevosTrabajos.add(Trabajo.copiar(trabajo));
