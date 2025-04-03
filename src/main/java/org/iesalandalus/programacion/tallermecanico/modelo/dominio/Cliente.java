@@ -17,9 +17,9 @@ public class Cliente {
     }
     public Cliente(Cliente cliente){
         Objects.requireNonNull(cliente,"No es posible copiar un cliente nulo.");
-        dni = cliente.dni;
-        nombre = cliente.nombre;
-        telefono = cliente.telefono;
+        this.dni = cliente.dni;
+        this.nombre = cliente.nombre;
+        this.telefono = cliente.telefono;
     }
 
     public String getNombre() {

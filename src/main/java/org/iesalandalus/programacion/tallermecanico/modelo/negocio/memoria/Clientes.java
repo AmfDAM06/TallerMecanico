@@ -46,11 +46,12 @@ public class Clientes implements org.iesalandalus.programacion.tallermecanico.mo
     @Override
     public Cliente buscar(Cliente cliente){
         Objects.requireNonNull(cliente, "No se puede buscar un cliente nulo.");
-        int clienteInd = clientes.indexOf(cliente);
-        if (clienteInd == -1){
+        if (clientes.contains(cliente)){
+            int indexCliente = clientes.indexOf(cliente);
+            return clientes.get(indexCliente);
+        } else {
             return null;
         }
-        return cliente;
     }
     @Override
     public void borrar(Cliente cliente) throws TallerMecanicoExcepcion {

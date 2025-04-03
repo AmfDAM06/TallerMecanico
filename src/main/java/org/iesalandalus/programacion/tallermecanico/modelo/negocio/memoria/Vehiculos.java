@@ -29,11 +29,12 @@ public class Vehiculos implements org.iesalandalus.programacion.tallermecanico.m
     @Override
     public Vehiculo buscar(Vehiculo vehiculo){
         Objects.requireNonNull(vehiculo, "No se puede buscar un vehículo nulo.");
-        int vehiculoInd = vehiculos.indexOf(vehiculo);
-        if (vehiculoInd == -1){
+        if (vehiculos.contains(vehiculo)){
+            int indexCliente = vehiculos.indexOf(vehiculo);
+            return vehiculos.get(indexCliente);
+        } else {
             return null;
         }
-        return vehiculo;
     }
     @Override
     public void borrar(Vehiculo vehiculo) throws TallerMecanicoExcepcion {
