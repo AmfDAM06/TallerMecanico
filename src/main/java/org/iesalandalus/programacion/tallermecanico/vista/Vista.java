@@ -1,64 +1,58 @@
 package org.iesalandalus.programacion.tallermecanico.vista;
 
 import org.iesalandalus.programacion.tallermecanico.controlador.Controlador;
+import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepcion;
+import org.iesalandalus.programacion.tallermecanico.modelo.dominio.*;
+import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
+import org.iesalandalus.programacion.tallermecanico.vista.eventos.GestorEventos;
 
-import java.util.Objects;
+import java.time.LocalDate;
+import java.util.List;
 
-public class Vista {
-    private Controlador controlador;
+public interface Vista {
+    GestorEventos getGestorEventos();
 
-    public void setControlador(Controlador controlador){
-        Objects.requireNonNull(controlador, "ERROR: el controlador no puede ser nulo");
-        this.controlador = controlador;
-    }
+    void setControlador(Controlador controlador);
 
-    public void comenzar(){
-        Opcion opcion;
-        do {
-            Consola.mostrarMenu();
-            opcion = Consola.elegirOpcion();
-            ejecutar(opcion);
-        } while (opcion != Opcion.SALIR);
-        controlador.terminar();
-    }
-    public void terminar(){
-        System.out.println("Hasta luego");
-    }
-    private void ejecutar(Opcion opcion){
-        switch (opcion){
-            case INSERTAR_CLIENTE -> insertarCliente()
-        }
-    }
-    private void insertarCliente(){
-        Consola.mostrarCabecera("Insertar cliente");
-        controlador.insertar(Consola.leerCliente());
-        System.out.println("Cliente insertado correctamente");
-    }
-    private void insertarVehiculo(){
-        Consola.mostrarCabecera("Insertar vehiculo");
-        controlador.insertar(Consola.leerVehiculo());
-        System.out.println("Vehículo insertado correctamente");
-    }
-    private void insertarRevision(){
-        Consola.mostrarCabecera("Insertar revisión");
-        controlador.insertar(Consola.leerRevision());
-        System.out.println("Revisión insertada correctamente");
-    }
-    private void buscarCliente(){
-        Consola.mostrarCabecera("Buscar cliente");
-        controlador.buscar(Consola.leerCliente());
-        System.out.println("Cliente buscado correctamente");
-    }
-    private void buscarVehiculo(){
-        Consola.mostrarCabecera("Buscar vehiculo");
-        controlador.buscar(Consola.leerVehiculo());
-        System.out.println("Vehículo buscado correctamente");
-    }
-    private void buscarRevision(){
-        Consola.mostrarCabecera("Buscar Revisión");
-        controlador.buscar(Consola.leerRevision());
-        System.out.println("Revisión buscada correctamente");
-    }
+    void comenzar() throws TallerMecanicoExcepcion;
 
+    void terminar();
 
+    Cliente leerCliente();
+
+    float leerPrecioMaterial();
+
+    int leerHoras();
+
+    Cliente leerClienteDNI();
+
+    String leerNuevoNombre();
+
+    String leerNuevoTelefono();
+
+    Vehiculo leerVehiculo();
+
+    Vehiculo leerVehiculoMatricula();
+
+    Revision leerRevision();
+
+    Mecanico leerMecanico();
+
+    Trabajo leerTrabajoVehiculo();
+
+    void notificarResultado(Evento evento, String texto, boolean exito);
+
+    void mostrarClientes(List<Cliente> clientes);
+
+    LocalDate leerFechaCierre();
+
+    void mostrarVehiculos(List<Vehiculo> vehiculos);
+
+    void mostrarTrabajos(List<Trabajo> trabajos);
+
+    void mostrarCliente(Cliente cliente);
+
+    void mostrarTrabajo(Trabajo trabajo);
+
+    void mostrarVehiculo(Vehiculo vehiculo);
 }

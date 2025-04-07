@@ -17,9 +17,9 @@ public class Cliente {
     }
     public Cliente(Cliente cliente){
         Objects.requireNonNull(cliente,"No es posible copiar un cliente nulo.");
-        dni = cliente.dni;
-        nombre = cliente.nombre;
-        telefono = cliente.telefono;
+        this.dni = cliente.dni;
+        this.nombre = cliente.nombre;
+        this.telefono = cliente.telefono;
     }
 
     public String getNombre() {
@@ -75,13 +75,12 @@ public class Cliente {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cliente cliente = (Cliente) o;
-        return Objects.equals(nombre, cliente.nombre) && Objects.equals(dni, cliente.dni) && Objects.equals(telefono, cliente.telefono);
+        if (!(o instanceof Cliente cliente)) return false;
+        return Objects.equals(dni, cliente.dni);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, dni, telefono);
+        return Objects.hashCode(dni);
     }
 }
