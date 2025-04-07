@@ -111,7 +111,7 @@ public class VistaTexto implements org.iesalandalus.programacion.tallermecanico.
 
     @Override
     public Vehiculo leerVehiculo(){
-        String marca = Consola.leerCadena("Introduzca el modelo del vehiculo: ");
+        String marca = Consola.leerCadena("Introduzca la marca del vehiculo: ");
         String modelo = Consola.leerCadena("Introduzca el modelo del vehiculo: ");
         String matricula = Consola.leerCadena("Introduzca la matricula del vehiculo: ");
         return new Vehiculo(marca,modelo,matricula);
