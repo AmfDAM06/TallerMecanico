@@ -8,21 +8,23 @@ import org.iesalandalus.programacion.tallermecanico.vista.eventos.GestorEventos;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 public interface Vista {
-    GestorEventos getGestorEventos();
+    int leerHoras();
 
-    void setControlador(Controlador controlador);
+    float leerPrecioMaterial();
+
+    LocalDate leerFechaCierre();
+
+    GestorEventos getGestorEventos();
 
     void comenzar() throws TallerMecanicoExcepcion;
 
     void terminar();
 
+
     Cliente leerCliente();
-
-    float leerPrecioMaterial();
-
-    int leerHoras();
 
     Cliente leerClienteDNI();
 
@@ -44,8 +46,6 @@ public interface Vista {
 
     void mostrarClientes(List<Cliente> clientes);
 
-    LocalDate leerFechaCierre();
-
     void mostrarVehiculos(List<Vehiculo> vehiculos);
 
     void mostrarTrabajos(List<Trabajo> trabajos);
@@ -55,4 +55,8 @@ public interface Vista {
     void mostrarTrabajo(Trabajo trabajo);
 
     void mostrarVehiculo(Vehiculo vehiculo);
+
+    LocalDate leerMes();
+
+    void mostrarEstadisticas(Map<TipoTrabajo,Integer> estadistica);
 }

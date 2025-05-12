@@ -1,10 +1,13 @@
 package org.iesalandalus.programacion.tallermecanico.vista.texto;
+
+import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
+import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
+import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
 import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 
 public class Consola {
     private static final String CADENA_FORMATO_FECHA = "dd/MM/yyyy";
@@ -20,51 +23,51 @@ public class Consola {
     public static void mostrarMenu(){
         mostrarCabecera("Gestor de Taller de Reparación de Vehículos.");
         mostrarCabecera("Menú de opciones: ");
-        for (Evento opcion : Evento.values()){
-            System.out.println(opcion);
+        for (Evento evento : Evento.values()){
+            System.out.println(evento);
         }
     }
 
     public static Evento elegirOpcion(){
-        Evento opcion = null;
+        Evento evento = null;
         do {
             try {
-                opcion = Evento.get(leerEntero("Introduzca el número de opción:"));
+                evento = Evento.get(leerEntero("Introduzca el número de opción:"));
             } catch (IllegalArgumentException e) {
                 System.out.printf("ERROR: %s%n", e.getMessage());
             }
 
-        } while (opcion == null);
+        } while (evento == null);
 
 
-        return opcion;
+        return evento;
     }
 
-    static float leerReal(String mensaje){
+    public static float leerReal(String mensaje){
         System.out.println(mensaje);
-        return Entrada.real();
+        return Float.parseFloat(Entrada.cadena());
 
     }
 
-    static int leerEntero(String mensaje){
+    public static int leerEntero(String mensaje){
         System.out.println(mensaje);
-        return Entrada.entero();
+        return Integer.parseInt(Entrada.cadena());
 
     }
 
-    static String leerCadena(String mensaje){
+    public static String leerCadena(String mensaje){
         System.out.println(mensaje);
         return Entrada.cadena();
     }
 
-    static LocalDate leerFecha(String mensaje){
-        LocalDate fecha;
-        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern(CADENA_FORMATO_FECHA);
-        try {
-            fecha = LocalDate.parse(leerCadena(mensaje), formatoFecha);
-        }catch (DateTimeParseException e){
-            fecha = null;
-        }
-        return fecha;
+    public static LocalDate leerFecha(String mensaje){
+        System.out.printf("Introduzca la fecha en este formato: %s", CADENA_FORMATO_FECHA);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(CADENA_FORMATO_FECHA);
+        return LocalDate.parse(leerCadena(mensaje),formatter);
     }
+
+
+
+
+
 }

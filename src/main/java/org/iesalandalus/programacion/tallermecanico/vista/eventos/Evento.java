@@ -1,3 +1,4 @@
+
 package org.iesalandalus.programacion.tallermecanico.vista.eventos;
 
 import java.util.HashMap;
@@ -14,54 +15,55 @@ public enum Evento {
     BUSCAR_VEHICULO(21,"Buscar un vehiculo."),
     BORRAR_VEHICULO(22,"Borrar un vehiculo."),
     LISTAR_VEHICULOS(23,"Listar vehículos."),
-    INSERTAR_REVISION(30,"Insertar un trabajo."),
-    INSERTAR_MECANICO(31, "Insertar un mecánico"),
-    BUSCAR_TRABAJO(32, "Buscar un trabajo."),
-    BORRAR_TRABAJO(33,"Borrar un trabajo."),
-    LISTAR_TRABAJOS(34,"Listar trabajos."),
-    LISTAR_TRABAJOS_CLIENTE(35,"Listar trabajos de un cliente."),
-    LISTAR_TRABAJOS_VEHICULO(36,"Listar trabajos de un vehiculo."),
-    ANADIR_HORAS_TRABAJO(40,"Añadir horas a un trabajo."),
-    ANADIR_PRECIO_MATERIAL_TRABAJO(41,"Añadir precio de material a un trabajo."),
-    CERRAR_TRABAJO(42,"Cerrar un trabajo."),
-    SALIR(0,"Salir.");
+    INSERTAR_REVISION(30,"Insertar una revisión."),
+    INSERTAR_MECANICO(31,"Insertar un trabajo mecánico."),
+    BUSCAR_TRABAJO(32, "Buscar una revisión."),
+    BORRAR_TRABAJO(33,"Borrar una revisión."),
+    LISTAR_TRABAJOS(34,"Listar revisiones."),
+    LISTAR_TRABAJOS_CLIENTE(35,"Listar revisiones de un cliente."),
+    LISTAR_TRABAJOS_VEHICULO(36,"Listar revisiones de un vehiculo."),
+    ANADIR_HORAS_TRABAJO(40,"Añadir horas a una revisión."),
+    ANADIR_PRECIO_MATERIAL_MECANICO(41,"Añadir precio de material a una revisión."),
+    CERRAR_TRABAJO(42,"Cerrar una revisión."),
+    MOSTRAR_ESTADISTICAS_MENSUALES(50,"Mostrar estadísticas mensuales"),
+    SALIR(0,"Salir."),;
 
 
-    private static final Map<Integer, Evento> eventos = new HashMap<>();
+    private static final Map<Integer, Evento> opciones = new HashMap<>();
     private String mensaje;
-    private int codigo;
+    private int numeroOpcion;
 
     private Evento(int numeroOpcion, String mensaje) {
         this.mensaje = mensaje;
-        this.codigo = numeroOpcion;
+        this.numeroOpcion = numeroOpcion;
     }
-    //Ahora mismo solo tenemos el mapa creado hay que inicializaro y rellenarlo con las eventos asi:
+    //Ahora mismo solo tenemos el mapa creado hay que inicializaro y rellenarlo con las opciones asi:
 
     static {
         //esto abre un bloque static
 
-        for (Evento opcion : values()){
-            //Hacemos un bucle que recorre todas las eventos del enumerado colocando values() recorre el enum
-            eventos.put(opcion.codigo,opcion);
+        for (Evento evento : values()){
+            //Hacemos un bucle que recorre todas las opciones del enumerado colocando values() recorre el enum
+            opciones.put(evento.numeroOpcion, evento);
             //con esto le digo que por cada opcion coja el número de opcion asociado y lo coloque
 
         }
     }
 
     public static boolean esValido(int numeroOpcion){
-        return eventos.containsKey(numeroOpcion);
+        return opciones.containsKey(numeroOpcion);
         //Para un mapa el constainskey toma como si ese número que funciona como CLAVE existe.
     }
 
     public static Evento get(int numeroOpcion){
         if (esValido(numeroOpcion)) {
-            return eventos.get(numeroOpcion);
+            return opciones.get(numeroOpcion);
         } else throw new IllegalArgumentException("El número de opción no es valido.");
     }
 
     @Override
     public String toString() {
-        return String.format("%s: %s", codigo, mensaje);
+        return String.format("%s: %s",numeroOpcion, mensaje);
     }
 
 }
