@@ -45,7 +45,7 @@ public class VistaTexto implements Vista {
         System.out.println("Me doy el piro, vampiro!");
     }
 
-    private void ejecutar(Evento evento) throws TallerMecanicoExcepcion {
+    private void ejecutar(Evento evento) throws TallerMecanicoExcepcion{
 
         switch(evento){
             case INSERTAR_CLIENTE -> gestorEventos.notificarEvento(Evento.INSERTAR_CLIENTE);
