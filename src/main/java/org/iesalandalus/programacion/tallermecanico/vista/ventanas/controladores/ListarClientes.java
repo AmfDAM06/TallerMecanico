@@ -7,11 +7,8 @@ import javafx.scene.control.TableView;
 
 public class ListarClientes {
 
-    @FXML
-    private Button btAceptar;
-
-    @FXML
-    private TableView<?> tvListaClientes;
+    @FXML    private Button btAceptar;
+    @FXML    private TableView<?> tvListaClientes;
 
     @FXML
     void aceptarListarClientes(ActionEvent event) {

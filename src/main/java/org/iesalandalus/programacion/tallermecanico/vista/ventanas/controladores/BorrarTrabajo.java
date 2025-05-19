@@ -7,20 +7,11 @@ import javafx.scene.control.TextField;
 
 public class BorrarTrabajo {
 
-    @FXML
-    private Button btBorrarTrabajo;
-
-    @FXML
-    private Button btCancelarBorrado;
-
-    @FXML
-    private TextField tfBorrarTrabajoDni;
-
-    @FXML
-    private TextField tfBorrarTrabajoFecha;
-
-    @FXML
-    private TextField tfBorrarTrabajoMatricula;
+    @FXML    private Button btBorrarTrabajo;
+    @FXML    private Button btCancelarBorrado;
+    @FXML    private TextField tfBorrarTrabajoDni;
+    @FXML    private TextField tfBorrarTrabajoFecha;
+    @FXML    private TextField tfBorrarTrabajoMatricula;
 
     @FXML
     void aceptarBorrarTrabajo(ActionEvent event) {
