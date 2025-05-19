@@ -3,6 +3,7 @@ package org.iesalandalus.programacion.tallermecanico.vista.ventanas.controladore
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 
 public class VentanaPrincipal {
@@ -14,8 +15,8 @@ public class VentanaPrincipal {
     @FXML    private Button btInsertarTrabajo;
     @FXML    private Button btInsertarVehiculo;
     @FXML    private Button btListarCliente;
-    @FXML    private Button btListarVehiculo;
     @FXML    private Button btListarTrabajo;
+    @FXML    private Button btListarVehiculo;
     @FXML    private ImageView ivBorrarCliente;
     @FXML    private ImageView ivBorrarTrabajo;
     @FXML    private ImageView ivBorrarVehiculo;
@@ -25,6 +26,16 @@ public class VentanaPrincipal {
     @FXML    private ImageView ivListarCliente;
     @FXML    private ImageView ivListarTrabajo;
     @FXML    private ImageView ivListarVehiculo;
+    @FXML    private MenuItem miAcercaDe;
+    @FXML    private MenuItem miBuscarCliente;
+    @FXML    private MenuItem miBuscarTrabajo;
+    @FXML    private MenuItem miBuscarVehiculo;
+    @FXML    private MenuItem miSalir;
+
+    @FXML
+    void pulsarAcercaDe(ActionEvent event) {
+
+    }
 
     @FXML
     void pulsarBorrarClientes(ActionEvent event) {
@@ -38,6 +49,21 @@ public class VentanaPrincipal {
 
     @FXML
     void pulsarBorrarVehiculos(ActionEvent event) {
+
+    }
+
+    @FXML
+    void pulsarBuscarCliente(ActionEvent event) {
+
+    }
+
+    @FXML
+    void pulsarBuscarTrabajo(ActionEvent event) {
+
+    }
+
+    @FXML
+    void pulsarBuscarVehiculo(ActionEvent event) {
 
     }
 
@@ -68,6 +94,11 @@ public class VentanaPrincipal {
 
     @FXML
     void pulsarListarVehiculos(ActionEvent event) {
+
+    }
+
+    @FXML
+    void pulsarSalir(ActionEvent event) {
 
     }
 
