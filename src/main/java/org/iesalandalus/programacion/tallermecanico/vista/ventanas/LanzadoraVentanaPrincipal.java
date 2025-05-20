@@ -18,6 +18,7 @@ public class LanzadoraVentanaPrincipal extends Application {
             Scene escena = new Scene(raiz);
             escenarioPrincipal.setTitle("Taller Mecánico");
             escenarioPrincipal.setScene(escena);
+            escenarioPrincipal.setResizable(false);
             escenarioPrincipal.setOnCloseRequest(e->confirmarSalida(escenarioPrincipal,e));
             escenarioPrincipal.show();
         } catch(Exception e) {

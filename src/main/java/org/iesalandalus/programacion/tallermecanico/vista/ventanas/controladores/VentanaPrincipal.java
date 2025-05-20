@@ -2,9 +2,17 @@ package org.iesalandalus.programacion.tallermecanico.vista.ventanas.controladore
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import org.iesalandalus.programacion.tallermecanico.vista.ventanas.LocalizadorVentanaPrincipal;
+
+import java.io.IOException;
 
 public class VentanaPrincipal {
 
@@ -69,7 +77,20 @@ public class VentanaPrincipal {
 
     @FXML
     void pulsarInsertarClientes(ActionEvent event) {
+        FXMLLoader fxmlLoader = new FXMLLoader(LocalizadorVentanaPrincipal.class.getResource("vistas/InsertarCliente.fxml"));
+        try {
+            Parent raiz = fxmlLoader.load();
 
+            Scene escena = new Scene(raiz);
+            Stage escenario = new Stage();
+            escenario.setScene(escena);
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.setTitle("Insertar Cliente");
+            escenario.setResizable(false);
+            escenario.showAndWait();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @FXML

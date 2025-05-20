@@ -5,37 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b0e04e-6981-41d9-b2bd-c9ae382a0816" name="Changes" comment="Commit inicial con el enunciado, las dependencias y los tests.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/vista/ventanas/LocalizadorVentanaPrincipal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/vista/ventanas/VistaGrafica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/vista/FabricaVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/vista/FabricaVista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/vista/ventanas/LanzadoraVentanaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/vista/ventanas/LanzadoraVentanaPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/imagenes/Logotipo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/imagenes/borrar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/imagenes/insertar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/imagenes/listar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/uml/MiEstilo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/uml/record.profile.uml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/uml/tallerMecanico.di" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/uml/tallerMecanico.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/uml/tallerMecanico.notation" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/uml/tallerMecanico.uml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/uml/tallerMecanico_es_ES.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/AcercaDe.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/BorrarCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/BorrarTrabajo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/BorrarVehiculo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/BuscarCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/BuscarTrabajo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/BuscarVehiculo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/InsertarCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/InsertarTrabajo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/InsertarVehiculo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/ListarClientes.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/ListarTrabajos.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/ListarVehiculos.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vistas/VentanaPrincipal.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/vista/ventanas/controladores/VentanaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/tallermecanico/vista/ventanas/controladores/VentanaPrincipal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,12 +68,12 @@
     &quot;assignee&quot;: &quot;JRJimenezReyes&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/JRJimenezReyes/TallerMecanico.git&quot;,
-    &quot;accountId&quot;: &quot;7afb4187-7209-404d-b356-a4a604097a01&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/AmfDAM06/TallerMecanico.git",
+    "accountId": "21d3e517-72c8-472a-b874-c7d344acc054"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -343,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747640551559</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Commit inicial con el enunciado, las dependencias y los tests.">
+      <option name="closed" value="true" />
+      <created>1747758824688</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747758824688</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
