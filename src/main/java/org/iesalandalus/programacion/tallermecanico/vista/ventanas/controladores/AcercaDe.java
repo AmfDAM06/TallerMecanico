@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.tallermecanico.vista.ventanas.controladores;
 
-public class AcercaDe {
+import org.iesalandalus.programacion.tallermecanico.vista.ventanas.utilidades.Controlador;
+
+public class AcercaDe extends Controlador {
 
 }
