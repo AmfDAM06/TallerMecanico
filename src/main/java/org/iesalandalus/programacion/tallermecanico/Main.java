@@ -10,7 +10,7 @@ import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepci
 public class Main {
     public static void main(String[] args){
         FabricaModelo fabricaModelo = FabricaModelo.CASCADA;
-        FabricaVista fabricaVista = FabricaVista.TEXTO;
+        FabricaVista fabricaVista = FabricaVista.VENTANA;
         FabricaFuenteDatos fabricaFuenteDatos = FabricaFuenteDatos.MEMORIA;
         Controlador controlador = new Controlador(fabricaModelo,fabricaFuenteDatos,fabricaVista);
         try {
